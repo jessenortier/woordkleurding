@@ -3,13 +3,12 @@ quoteString = document.getElementById('quote').innerHTML;
 quote = document.getElementById('quote').innerText.split(" ");
 quoteWordList = [];
 
-//strip quote from comma's and dots
+//strip quote of comma's and dots
 for(const element in quote) {
     quoteWordList.push(quote[element].replace(/\,|\./, ''));
 };
-// console.log(quote);
-// console.log(quoteWordList);
 
+//add eventlisteners to buttons
 document.querySelector('#rood').addEventListener('click', highlightWord);
 document.querySelector('#groen').addEventListener('click', highlightWord);
 document.querySelector('#blauw').addEventListener('click', highlightWord);
