@@ -28,4 +28,8 @@ function highlightWord(event){
     }
 }
 
-//.replace(/\,|\./, '')
+//todo: 
+// random quote bij laden
+// knop voor andere quote
+// knop voor reset kleuren
+// woord aanklikken + knop klikken = kleur verandert
