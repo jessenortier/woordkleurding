@@ -1,0 +1,25 @@
+#groen, .groen {
+    background-color: green;
+    color: white;
+}
+
+#rood, .rood {
+    background-color:red;
+    color: black;
+}
+
+#blauw, .blauw {
+    background-color: blue;
+    color: white;
+}
+
+#geel, .geel {
+    background-color: yellow;
+    color: black;
+}
+
+#quote {
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 16px;
+}
+
