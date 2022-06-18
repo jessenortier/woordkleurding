@@ -27,4 +27,3 @@ function highlightWord(event){
         document.getElementById('message').innerText = " Woord niet gevonden :(";
     }
 }
-

@@ -1,32 +1,60 @@
-#groen, .groen {
+.groen {
     background-color: green;
     color: white;
 }
 
-#rood, .rood {
+.rood {
     background-color:red;
-    color: black;
+    color: white;
 }
 
-#blauw, .blauw {
+.blauw {
     background-color: blue;
     color: white;
 }
 
-#geel, .geel {
+.geel {
     background-color: yellow;
     color: black;
 }
 
+#quote span {
+    padding: 0px 8px;
+}
+
+#quote span:hover {
+    font-weight: 600;
+    cursor:default;
+}
+#message span {
+    padding: 0px 4px;
+}
+
 #quote {
-    font-family: 'Courier New', Courier, monospace;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 body {
     text-align: center;
+    font-family: 'Courier New', Courier, monospace;
 }
 
 #message {
-    margin: 8 0;
+    margin: 8px 0px;
+    font-size: 0.8em;
+
 }
+#typed-value {
+    font-family: 'Courier New', Courier, monospace;
+}
+button {
+    padding: 5px;
+    border: 0px;
+    font-family: 'Courier New', Courier, monospace;
+    text-transform: uppercase;
+    font-weight: 700;
+}
+
+/* #quote span {
+    padding: 0 4;
+} */
