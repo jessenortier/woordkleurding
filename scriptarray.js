@@ -17,7 +17,7 @@ function highlightWord(event){
         if(document.querySelector('#quote').children[element].innerText.replace(/\,|\./, '') == hitWord) {
             document.querySelector('#quote').children[element].className = event.composedPath()[0].id;
             document.getElementById('typed-value').classList.remove('rood');
-            document.getElementById('message').innerHTML = `Woord <i>${hitWord}</i> is <span class="${event.composedPath()[0].id}">${event.composedPath()[0].id}</span> gemaakt!`;
+            document.getElementById('message').innerHTML = `<i>${hitWord}</i> = <span class="${event.composedPath()[0].id}">${event.composedPath()[0].id}</span>!`;
             document.getElementById('typed-value').select();
             var woordGevonden = true;
         } else if(woordGevonden != true) {
