@@ -16,30 +16,16 @@ for(element of document.querySelectorAll('#red, #green, #blue, #yellow')) {
     document.getElementById(element.id).addEventListener('click', highlightWord);
 }
 
-//Add eventlistener to each word (span) and make them clickable
-function makeWordsClickable() {
-    for(element of document.querySelectorAll('#quote span')) {
-        element.addEventListener('click', wordClicked);
-    }
-}
-
 //Add eventlistener to new quote-button, call printQuote()
 document.getElementById('refresh').addEventListener('click', printQuote);
 
 //Add eventlistener to clear colors-button
-document.getElementById('clear').addEventListener('click', function() {
-    for(const element of document.querySelectorAll("#quote span")) {
-        element.removeAttribute('class');
-    }
-    document.getElementById('typed-value').value = "";
-    inputFieldFocus();
-    document.getElementById('message').innerText = "Colors cleared";
-    }  
-)
+document.getElementById('clear').addEventListener('click', clearColors);
 
+//Eventlistener for each word of the quote is added in the makeWordsClickable() function below
 
 //FUNCTIONS
-//Behaviour when a word is clicked
+//Behaviour when a word is clicked (selection/deselection)
 function wordClicked(event){
     if(event.srcElement.classList.contains("selected")) { //Deselection behavior
         document.getElementById('typed-value').value = "";
@@ -60,6 +46,13 @@ function wordClicked(event){
     }
 }
 
+//Add eventlistener to each word (span) and call wordClicked() when clicked
+function makeWordsClickable() {
+    for(element of document.querySelectorAll('#quote span')) {
+        element.addEventListener('click', wordClicked);
+    }
+}
+
 //Checks the user agent, if it isn't mobile, sets focus (if input field is empty) 
 //or selects value (if input field contains a value)
 function inputFieldFocus() {
@@ -71,6 +64,16 @@ function inputFieldFocus() {
         }
     }
 }
+
+//Functionality behind the 'clear all'-button
+function clearColors() {
+    for(const element of document.querySelectorAll("#quote span")) {
+        element.removeAttribute('class');
+    }
+    document.getElementById('typed-value').value = "";
+    inputFieldFocus();
+    document.getElementById('message').innerText = "Colors cleared";
+}  
 
 //Actual word coloring
 function highlightWord(event) {
@@ -96,7 +99,7 @@ function giveQuote(quoteArray) {
 }
 
 //Gets string from array of quotes, make array of separate words from quote-string, 
-//add span element to each word, finally print the joined string to the document
+//add span element to each word, then print the joined string to the document
 function printQuote() {
     quoteWords = giveQuote(quotesList).split(" ").map(element => { return `<span>${element}</span>`});
     let quoteString = quoteWords.join('');
