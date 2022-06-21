@@ -61,7 +61,7 @@ document.getElementById('clear').addEventListener('click', function(){
 function makeWordClickable(event){
     selectHighlightWord(event);
     document.getElementById('typed-value').value = event.srcElement.innerText.replace(/\,|\./, '');
-    document.getElementById('typed-value').focus();
+    //document.getElementById('typed-value').focus();
     document.getElementById('message').innerHTML = "Selected <i>" + event.srcElement.innerText.replace(/\,|\./, '') + "</i>";
 }
 
