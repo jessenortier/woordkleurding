@@ -63,6 +63,7 @@ function wordClicked(event){
     if(event.srcElement.classList.contains("selected")) {
         document.getElementById('typed-value').value = "";
         event.srcElement.classList.remove("selected");
+        document.getElementById('message').innerHTML = "Deselected <i>" + event.srcElement.innerHTML.replace(/\,|\./, '') + "</i>";
     } else {
         for(element of document.querySelectorAll('#quote span')) {
             //console.log(element);
