@@ -22,11 +22,11 @@ function printQuote() {
     document.getElementById('quote').innerHTML = quoteString;
     
     //refresh input field
-    document.getElementById('typed-value').select();
     document.getElementById('typed-value').value = "";
 
     //set initial message
     document.getElementById('message').innerText = "Type or tap a word, then a color";
+    
     makeWordsClickable();
     inputFieldFocus();
 }
