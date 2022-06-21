@@ -5,18 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Woordkleurspel</title>
   <link rel="stylesheet" href="style.css">
-  <script src="scriptarray.js" defer></script>
+  <script src="script.js" defer></script>
 </head>
 <body>
   <h1>Woordkleurding</h1>
-  <p id="quote">When you have eliminated the impossible, whatever remains, however improbable, must be the truth.</p>
+  <p id="quote"></p>
   <div>
-    <input type="text" autocapitalize="off" id="typed-value"/>
-    <div id="message">Type een woord en klik op een kleur</div>
-    <button type="button" id="groen" class="groen">Groen</button>
-    <button type="button" id="rood" class="rood">Rood</button>
-    <button type="button" id="blauw" class="blauw">Blauw</button>
-    <button type="button" id="geel" class="geel">Geel</button>
+    <input type="text" autocapitalize="off" id="typed-value" spellcheck="false"/>
+    <div id="message"></div>
+    <button type="button" id="green" class="green">Green</button>
+    <button type="button" id="red" class="red">Red</button>
+    <button type="button" id="blue" class="blue">Blue</button>
+    <button type="button" id="yellow" class="yellow">Yellow</button>
+    <br/><button type="button" id="refresh">new quote</button>
+    <button type="button" id="clear">clear</button>
   </div>
   
 </body>

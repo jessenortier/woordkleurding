@@ -1,21 +1,32 @@
-.groen {
+.green {
     background-color: green;
     color: white;
 }
 
-.rood {
+.red {
     background-color:red;
     color: white;
 }
 
-.blauw {
+.blue {
     background-color: blue;
     color: white;
 }
 
-.geel {
+.yellow {
     background-color: yellow;
     color: black;
+}
+
+.selected {
+    background-color: rgb(180, 223, 248);
+    color: black;
+}
+
+h1 {
+    font-size: 40px;
+    margin-block-start: 0.6em;
+    margin-block-end: 0em;
 }
 
 #quote span {
@@ -24,14 +35,21 @@
 
 #quote span:hover {
     font-weight: 600;
-    cursor:default;
+
 }
+
 #message span {
     padding: 0px 4px;
 }
 
 #quote {
-    font-size: 20px;
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    font-size: 28px;
+    padding: 0px 6vw;   
+    margin-block-start: 0.5em;
+    font-style: italic;
 }
 
 body {
@@ -41,20 +59,25 @@ body {
 
 #message {
     margin: 8px 0px;
-    font-size: 0.8em;
+    font-size: 1em;
 
 }
+
 #typed-value {
     font-family: 'Courier New', Courier, monospace;
+    font-size: 1.5em;
 }
+
 button {
-    padding: 5px;
+    padding: 5px 8px;
+    margin-bottom: 8px;
     border: 0px;
     font-family: 'Courier New', Courier, monospace;
     text-transform: uppercase;
+    font-size: 1.5em;
     font-weight: 700;
 }
 
-/* #quote span {
-    padding: 0 4;
-} */
+button:hover, #quote span:hover {
+    cursor: pointer;
+}
