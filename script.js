@@ -104,4 +104,4 @@ function highlightWord(event){
 //initialize page
 let quoteWords = [];
 printQuote();
-document.getElementById('typed-value').focus();
+inputFieldFocus();
