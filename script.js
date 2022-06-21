@@ -60,16 +60,18 @@ document.getElementById('clear').addEventListener('click', function(){
 
 //behaviour for when a word is clicked
 function wordClicked(event){
-    if(event.srcElement.classList.contains("selected")) {
+    if(event.srcElement.classList.contains("selected")) { //deselection behavior
         document.getElementById('typed-value').value = "";
         event.srcElement.classList.remove("selected");
         document.getElementById('message').innerHTML = "Deselected <i>" + event.srcElement.innerHTML.replace(/\,|\./, '') + "</i>";
-    } else {
+        document.getElementById('typed-value').removeAttribute('readonly');
+        inputFieldFocus();
+    } else { //selection behavior
         for(element of document.querySelectorAll('#quote span')) {
-            //console.log(element);
             element.classList.remove("selected");
         }
         event.srcElement.classList.add("selected");
+        document.getElementById('typed-value').setAttribute('readonly', true);
         document.getElementById('typed-value').value = event.srcElement.innerText.replace(/\,|\./, '');
         inputFieldFocus();
         document.getElementById('message').innerHTML = "Selected <i>" + event.srcElement.innerText.replace(/\,|\./, '') + "</i>";
@@ -95,11 +97,13 @@ function highlightWord(event){
             document.getElementById('message').innerHTML = `Made <i>${hitWord}</i> <span class="${event.composedPath()[0].id}">${event.composedPath()[0].id}</span>`;
             inputFieldFocus();
             var woordGevonden = true;
+            document.getElementById('typed-value').removeAttribute('readonly');
         } else if(woordGevonden != true) {
             document.getElementById('message').innerText = "Word not found :(";
             inputFieldFocus();
         }
     }
+
 }
 
 //initialize page
