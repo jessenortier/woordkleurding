@@ -28,6 +28,7 @@ function printQuote() {
     //set initial message
     document.getElementById('message').innerText = "Type or tap a word, then a color";
     makeWordsClickable();
+    inputFieldFocus();
 }
 
 //add eventlistener to each color button
@@ -52,7 +53,7 @@ document.getElementById('clear').addEventListener('click', function(){
         element.removeAttribute('class');
     }
     document.getElementById('typed-value').value = "";
-    document.getElementById('typed-value').select();
+    inputFieldFocus();
     document.getElementById('message').innerText = "Colors cleared";
     }  
 )
@@ -61,7 +62,7 @@ document.getElementById('clear').addEventListener('click', function(){
 function makeWordClickable(event){
     selectHighlightWord(event);
     document.getElementById('typed-value').value = event.srcElement.innerText.replace(/\,|\./, '');
-    //document.getElementById('typed-value').focus();
+    inputFieldFocus();
     document.getElementById('message').innerHTML = "Selected <i>" + event.srcElement.innerText.replace(/\,|\./, '') + "</i>";
 }
 
@@ -74,17 +75,28 @@ function selectHighlightWord(event) {
     event.srcElement.className = "selected";
 }
 
+function inputFieldFocus(){
+    if((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) == false){
+        if(document.getElementById('typed-value').value == "") {
+            document.getElementById('typed-value').focus();
+        }
+        else { 
+            document.getElementById('typed-value').select();
+        }
+    }
+}
+
 function highlightWord(event){
     const hitWord = document.querySelector('#typed-value').value;
     for(const element in quoteWords) {
         if(document.querySelector('#quote').children[element].innerText.replace(/\,|\./, '').toLowerCase() == hitWord.toLowerCase()) {
             document.querySelector('#quote').children[element].className = event.composedPath()[0].id;
             document.getElementById('message').innerHTML = `Made <i>${hitWord}</i> <span class="${event.composedPath()[0].id}">${event.composedPath()[0].id}</span>`;
-            //document.getElementById('typed-value').select();
+            inputFieldFocus();
             var woordGevonden = true;
         } else if(woordGevonden != true) {
             document.getElementById('message').innerText = "Word not found :(";
-            document.getElementById('typed-value').select();
+            inputFieldFocus();
         }
     }
 }
