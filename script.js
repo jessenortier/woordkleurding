@@ -63,6 +63,7 @@ function wordClicked(event){
     if(event.srcElement.classList.contains("selected")) { //deselection behavior
         document.getElementById('typed-value').value = "";
         event.srcElement.classList.remove("selected");
+        if(event.srcElement.className == ""){event.srcElement.removeAttribute('class');} //remove class attribute entirely if it is empty after the "selected" class has been removed
         document.getElementById('message').innerHTML = "Deselected <i>" + event.srcElement.innerHTML.replace(/\,|\./, '') + "</i>";
         document.getElementById('typed-value').removeAttribute('readonly');
         inputFieldFocus();
@@ -74,7 +75,7 @@ function wordClicked(event){
         document.getElementById('typed-value').setAttribute('readonly', true);
         document.getElementById('typed-value').value = event.srcElement.innerText.replace(/\,|\./, '');
         inputFieldFocus();
-        document.getElementById('message').innerHTML = "Selected <i>" + event.srcElement.innerText.replace(/\,|\./, '') + "</i>";
+        document.getElementById('message').innerHTML = "Selected <i>" + event.srcElement.innerText.replace(/\,|\./, '') + "</i>, now select a color...";
     }
 }
 
