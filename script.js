@@ -12,8 +12,7 @@ const quotesList = [
 
 //EVENT LISTENERS
 //Add eventlistener to each color button
-for(element of document.querySelectorAll('#red, #green, #blue, #yellow'))
-{
+for(element of document.querySelectorAll('#red, #green, #blue, #yellow')) {
     document.getElementById(element.id).addEventListener('click', highlightWord);
 }
 
@@ -28,7 +27,7 @@ function makeWordsClickable() {
 document.getElementById('refresh').addEventListener('click', printQuote);
 
 //Add eventlistener to clear colors-button
-document.getElementById('clear').addEventListener('click', function(){
+document.getElementById('clear').addEventListener('click', function() {
     for(const element of document.querySelectorAll("#quote span")) {
         element.removeAttribute('class');
     }
@@ -63,19 +62,18 @@ function wordClicked(event){
 
 //Checks the user agent, if it isn't mobile, sets focus (if input field is empty) 
 //or selects value (if input field contains a value)
-function inputFieldFocus(){
+function inputFieldFocus() {
     if((/Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent)) == false){
         if(document.getElementById('typed-value').value == "") {
             document.getElementById('typed-value').focus();
-        }
-        else { 
+        } else { 
             document.getElementById('typed-value').select();
         }
     }
 }
 
 //Actual word coloring
-function highlightWord(event){
+function highlightWord(event) {
     const hitWord = document.querySelector('#typed-value').value;
     for(const element in quoteWords) { //loop through array of words and color if match was found
         if(document.querySelector('#quote').children[element].innerText.replace(/\,|\./, '').toLowerCase() == hitWord.toLowerCase()) {
