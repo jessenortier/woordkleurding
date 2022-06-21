@@ -40,11 +40,11 @@ for(element of document.querySelectorAll('#red, #green, #blue, #yellow'))
 //add eventlistener to each word (span) and make them clickable
 function makeWordsClickable() {
     for(element of document.querySelectorAll('#quote span')) {
-        element.addEventListener('click', makeWordClickable);
+        element.addEventListener('click', wordClicked);
     }
 }
 
-//add eventlistener to new quote-button
+//add eventlistener to new quote-button, call printQuote()
 document.getElementById('refresh').addEventListener('click', printQuote);
 
 //add eventlistener to clear colors-button
@@ -58,21 +58,21 @@ document.getElementById('clear').addEventListener('click', function(){
     }  
 )
 
-//when a word is clicked, pass its innerText to the input box
-function makeWordClickable(event){
-    selectHighlightWord(event);
-    document.getElementById('typed-value').value = event.srcElement.innerText.replace(/\,|\./, '');
-    inputFieldFocus();
-    document.getElementById('message').innerHTML = "Selected <i>" + event.srcElement.innerText.replace(/\,|\./, '') + "</i>";
-}
-
-function selectHighlightWord(event) {
-    for(element of document.querySelectorAll('#quote span')) {
-        if(element.className == "selected") {
-            element.removeAttribute('class');
+//behaviour for when a word is clicked
+function wordClicked(event){
+    if(event.srcElement.classList.contains("selected")) {
+        document.getElementById('typed-value').value = "";
+        event.srcElement.classList.remove("selected");
+    } else {
+        for(element of document.querySelectorAll('#quote span')) {
+            //console.log(element);
+            element.classList.remove("selected");
         }
+        event.srcElement.classList.add("selected");
+        document.getElementById('typed-value').value = event.srcElement.innerText.replace(/\,|\./, '');
+        inputFieldFocus();
+        document.getElementById('message').innerHTML = "Selected <i>" + event.srcElement.innerText.replace(/\,|\./, '') + "</i>";
     }
-    event.srcElement.className = "selected";
 }
 
 function inputFieldFocus(){
