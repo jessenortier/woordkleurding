@@ -26,7 +26,7 @@ function printQuote() {
     document.getElementById('typed-value').value = "";
 
     //set initial message
-    document.getElementById('message').innerText = "Type or click a word, follow by a color";
+    document.getElementById('message').innerText = "Type or tap a word, then acolor";
     makeWordsClickable();
 }
 
